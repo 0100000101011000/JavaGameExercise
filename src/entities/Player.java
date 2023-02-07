@@ -23,10 +23,16 @@ public class Player extends Entity{
 	private boolean left, up, right, down;
 	private boolean moving = false;
 	private float playerSpeed = 2.0f;
+	private int playerDir = -1;
 	
 	public Player(float x, float y) {
 		super(x, y);
 		loadAnimations();
+	}
+	
+	public void setDirection(int direction) {
+		this.playerDir = direction;
+		moving = true;
 	}
 	
 	public void update() {
@@ -92,8 +98,7 @@ public class Player extends Entity{
 		try {
 			BufferedImage img = ImageIO.read(is);
 			
-			animations = new BufferedImage[9][6];
-			
+			animations = new BufferedImage[9][6];			
 			for(int j=0; j<animations.length; j++) {
 				for(int i=0; i<animations[j].length; i++) {
 					animations[j][i] = img.getSubimage(i*64, j*40, 64, 40);
@@ -140,6 +145,14 @@ public class Player extends Entity{
 
 	public void setDown(boolean down) {
 		this.down = down;
+	}
+
+	public void resetDirBooleans() {
+		left = false;
+		right = false;
+		up = false;
+		down = false;
+		
 	}
 	
 	
