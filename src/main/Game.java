@@ -88,7 +88,6 @@ public class Game implements Runnable{
 				gamePanel.repaint();
 				frames++;
 				deltaF--;
-				
 			}
 			
 
