@@ -43,7 +43,7 @@ public class LoadSave {
 				int value = color.getRed();
 				if (value >= 48)
 					value = 0;
-				lvlData[j][i] = color.getRed();
+				lvlData[j][i] = value;
 			}
 		}
 		return lvlData;
